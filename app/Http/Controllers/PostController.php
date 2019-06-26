@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PostModel;
 use JsValidator;
+use Validator;
 class PostController extends Controller
 {
     /**
@@ -37,18 +38,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       $request_data=$request->all();
+    //    $request_data=$request->all();
        $model_obj=new PostModel;
-    //    $validate=JsValidator::make($request-all(),$model_obj->validate());
-    //    if($validate->fails())
-    //    {
-    //     //    return back()->withInput()->withErrors($validate)
-    //        return redirect()->back()->withErrors($validate->errors());
-    //    }
-    //    else
-    //    {
-    //        echo "post";
-    //    }
+       $validate=Validator::make($request->all(),$model_obj->validate());
+       if($validate->fails())
+       {
+        //    return back()->withInput()->withErrors($validate)
+           return redirect()->back()->withErrors($validate);
+       }
+       else
+       {
+           echo "post";
+       }
+   
+   
     }
 
     /**

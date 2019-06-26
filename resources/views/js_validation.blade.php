@@ -23,7 +23,7 @@
   </div>
 @endif   
 
-@if ($errors->any())
+<!-- @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -31,8 +31,8 @@
             @endforeach
         </ul>
     </div>
-    @endif
-  {{Form::open(['method'=>'post','url'=>"/",'id'=>'my-form'])}}
+    @endif -->
+  {{Form::open(['method'=>'post','id'=>'my-form'])}}
     <div class="form-group">
 
       {{Form::label('title','Title',['class'=>'form-control-label'])}}
